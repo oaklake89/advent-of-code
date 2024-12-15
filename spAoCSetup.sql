@@ -2,7 +2,6 @@ CREATE PROCEDURE [spAoCSetup]
     @year INT,
     @day INT,
     @columnDefinitions NVARCHAR(MAX),
-    @fieldTerminator NVARCHAR(12) = '\t',
     @rowTerminator NVARCHAR(12) = '\n'
 AS
 BEGIN
@@ -24,11 +23,16 @@ BEGIN
             PRINT 'Table created: ' + @tableName;
         END
 
+        DECLARE @RAWDATA TABLE (
+            [Id] INT IDENTITY(1,1),
+            [Content] NVARCHAR(MAX)
+        );
+
         DECLARE @bulkInsertCommand NVARCHAR(MAX) = N'
-            BULK INSERT ' + QUOTENAME(@tableName) + '
+            BULK INSERT @RAWDATA
             FROM ''' + @filePath + '''
             WITH (
-                FIELDTERMINATOR = ''' + @fieldTerminator + ''',
+                FIELDTERMINATOR = ''' + @rowTerminator + ''',
                 ROWTERMINATOR = ''' + @rowTerminator + ''',
                 FIRSTROW = 1,
                 TABLOCK
