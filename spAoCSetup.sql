@@ -1,4 +1,4 @@
-CREATE PROCEDURE [spAoCSetup]
+CREATE OR ALTER PROCEDURE [spAoCSetup]
     @year INT,
     @day INT,
     @rowTerminator NVARCHAR(12) = '\n'
