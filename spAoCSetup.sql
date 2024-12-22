@@ -64,7 +64,6 @@ BEGIN
             INSERT INTO ''' + QUOTENAME(@tableName) + '''
             SELECT ';
 
-
         SET @i = 1;
         WHILE @i <= @columnCount
         BEGIN
