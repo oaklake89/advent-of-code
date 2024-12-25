@@ -1,1 +1,1 @@
-# Advent of Code (T-SQL)
+# Advent of Code
