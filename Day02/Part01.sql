@@ -83,4 +83,5 @@ WITH
 
 SELECT
     SUM([IsSafe]) AS [NumberOfSafeReports]
-FROM [Evaluated];
+FROM
+    [Evaluated];
