@@ -3,7 +3,8 @@ WITH
     AS
     (
         SELECT
-            [Column1], ROW_NUMBER() OVER (ORDER BY [Column1] ASC) AS [RowNum]
+            [Column1],
+            ROW_NUMBER() OVER (ORDER BY [Column1] ASC) AS [RowNum]
         FROM
             [Day01]
     ),
@@ -11,7 +12,8 @@ WITH
     AS
     (
         SELECT
-            [Column2], ROW_NUMBER() OVER (ORDER BY [Column2] ASC) AS [RowNum]
+            [Column2],
+            ROW_NUMBER() OVER (ORDER BY [Column2] ASC) AS [RowNum]
         FROM
             [Day01]
     )
